@@ -1,9 +1,19 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Roboto+Mono:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --page-padding: 1rem 2.2rem;
+  --custom-font-size: 1.1rem;
+}
+
+body {
+  background-color: #303134;
+  color: #ffffed;
+  font-family: "Courier", Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
-  height: 40vmin;
+  width: 60px;
   pointer-events: none;
 }
 
@@ -13,26 +23,109 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-nav {
+  background-color: #202124;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  height: 10vh;
+  padding: var(--page-padding);
+  font-family: "Roboto Mono";
+  font-size: var(--custom-font-size);
+  box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
+  -webkit-box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
+  -moz-box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
 }
 
-.App-link {
-  color: #61dafb;
+.nav-logo {
+  display: flex;
+  justify-content: space-around;
+  gap: .5rem;
+}
+
+.nav-logo-text {
+  align-self: center;
+  color: #61daf7;
+  font-size: 2rem;
+}
+
+.nav-title {
+  align-self: center;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+main {
+  padding: var(--page-padding);
+  margin-top: 3rem;
+}
+
+main::after {
+  content: "";
+  background-image: url(./images/navLogo.png);
+  background-size: calc(15rem + 10vmin);
+  background-repeat: no-repeat;
+  background-color: #303134;
+  background-blend-mode: soft-light;
+  opacity: 0.2;
+  top: 35%;
+  left: 90%;
+  bottom: 20%;
+  right: 0;
+  position: absolute;
+}
+
+main h1 {
+  font-size: calc(var(--custom-font-size) + 5vmin - .2rem);
+  width: 75vw;
+}
+
+main ul {
+  font-size: calc(var(--custom-font-size) + 1.5vmin);
+  list-style: none;
+}
+
+main ul > li::before {
+  content: "•";
+  color: #61daf7;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+@media screen and (max-width: 767px) {
+  .App-nav {
+    --page-padding: 1rem;
+  }
+
+  .App-logo {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+  }
+
+  .nav-logo {
+    gap: .3rem;
+  }
+
+  .nav-logo-text {
+    font-size: var(--custom-font-size);
+  }
+
+  .nav-title {
+    font-size: calc(var(--custom-font-size) - 5px);
+    align-self: center;
+  }
+
+  main h1 {
+    text-align: center;
   }
 }
