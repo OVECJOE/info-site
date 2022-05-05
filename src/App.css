@@ -77,7 +77,7 @@ main::after {
   background-blend-mode: soft-light;
   opacity: 0.2;
   top: 35%;
-  left: 90%;
+  left: 85%;
   bottom: 20%;
   right: 0;
   position: absolute;
@@ -86,20 +86,32 @@ main::after {
 main h1 {
   font-size: calc(var(--custom-font-size) + 5vmin - .2rem);
   width: 75vw;
+  letter-spacing: -0.05em;
 }
 
 main ul {
   font-size: calc(var(--custom-font-size) + 1.5vmin);
-  list-style: none;
+  /* list-style: none; */
+  max-width: 60vw;
 }
 
-main ul > li::before {
+main ul > li {
+  padding: .9rem;
+}
+
+/* Color the list style */
+main ul > li::marker {
+  color: #61daf7;
+  font-size: 1.6rem;
+}
+
+/* main ul > li::before {
   content: "•";
   color: #61daf7;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
-}
+} */
 
 @media screen and (max-width: 767px) {
   .App-nav {
@@ -127,5 +139,10 @@ main ul > li::before {
 
   main h1 {
     text-align: center;
+    width: 75vw;
+  }
+
+  main ul {
+    max-width: 90vw;
   }
 }
