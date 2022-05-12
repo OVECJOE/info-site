@@ -7,9 +7,14 @@
 }
 
 body {
+  background-color: #ffffed;
+  color: #303134;
+  font-family: "Courier", Arial, Helvetica, sans-serif;
+}
+
+.dark-body {
   background-color: #303134;
   color: #ffffed;
-  font-family: "Courier", Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -24,13 +29,19 @@ body {
 }
 
 .App-nav {
-  background-color: #202124;
   display: flex;
   justify-content: space-between;
   height: 10vh;
   padding: var(--page-padding);
   font-family: "Roboto Mono";
   font-size: var(--custom-font-size);
+  box-shadow: -5px 13px 17px -4px rgba(123, 124, 126, 0.404);
+  -webkit-box-shadow: -5px 13px 17px -4px rgba(123, 124, 126, 0.404);
+  -moz-box-shadow: -5px 13px 17px -4px rgba(123, 124, 126, 0.404);
+}
+
+.dark-nav {
+  background-color: #202124;
   box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
   -webkit-box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
   -moz-box-shadow: -5px 13px 17px -4px rgba(32, 33, 36, 0.75);
@@ -73,14 +84,17 @@ main::after {
   background-image: url(./images/navLogo.png);
   background-size: calc(15rem + 10vmin);
   background-repeat: no-repeat;
-  background-color: #303134;
-  background-blend-mode: soft-light;
-  opacity: 0.2;
+  opacity: 0.3;
   top: 35%;
   left: 85%;
   bottom: 20%;
   right: 0;
   position: absolute;
+}
+
+.dark-main::after {
+  background-color: #303134;
+  background-blend-mode: soft-light;
 }
 
 main h1 {
@@ -97,6 +111,7 @@ main ul {
 
 main ul > li {
   padding: .9rem;
+  list-style-type: square;
 }
 
 /* Color the list style */
@@ -105,13 +120,49 @@ main ul > li::marker {
   font-size: 1.6rem;
 }
 
-/* main ul > li::before {
-  content: "•";
-  color: #61daf7;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-} */
+.theme-switch {
+  display: flex;
+  gap: .6rem;
+  align-self: center;
+}
+
+.theme-switch > span {
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.faded {
+  opacity: .3;
+}
+
+.theme-switch .mode-toggler,
+.theme-switch .dark-toggler {
+  position: relative;
+  width: 40px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.mode-toggler .circle,
+.dark-toggler .circle {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #202124;
+  border-radius: 50%;
+  top: 0;
+}
+
+.mode-toggler .circle {
+  left: 0;
+  transition: all 1s ease;
+}
+
+.dark-toggler .circle {
+  right: 0;
+  transition: all 1s ease;
+}
 
 @media screen and (max-width: 767px) {
   .App-nav {
